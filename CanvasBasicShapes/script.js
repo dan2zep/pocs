@@ -14,8 +14,8 @@ const colors = ['#e4755b', '#e05f42', '#dc4928', '#c53e20', '#ab361c']
 function getRandomColors(isFromArray = false) {
   if(isFromArray) {
     return {
-      randomColorA: colors[Math.floor(Math.random() * (colors.length + 1))],
-      randomColorB: colors[Math.floor(Math.random() * (colors.length + 1))],
+      randomColorA: colors[Math.floor(Math.random() * (colors.length))],
+      randomColorB: colors[Math.floor(Math.random() * (colors.length))],
     }
   }
   return {
