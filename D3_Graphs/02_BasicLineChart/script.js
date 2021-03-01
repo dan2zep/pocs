@@ -1,5 +1,6 @@
-// import dimensions from './dimensions.js'
-// import drawCanvas from './drawCanvas.js'
+// The code doesn't render, most likely because the methods for drawing are inside a class
+// and not in the main script, not sure a 100% but it ouwld be the only difference with the original example
+
 import CanvasDrawer from './CanvasDrawer.js'
 
 async function drawLineChart() {
@@ -14,14 +15,17 @@ async function drawLineChart() {
             bottom: 40,
             left: 60,
             right: 15,
-        }
+        },
+        identifier: '#chart',
+        accessors: {
+            xAxis: dataPoint => dataPoint.date,
+            yAxis: dataPoint => dataPoint.temperatureMax,
+        },
     })
 
-    // const dateParser = d3.timeParse('%Y-%m-%d')
-    // const yAccessor = d => d.temperatureMax
-    // const xAccessor = d => dateParser(d.date)
-
-    // const wrapper = drawCanvas('#chart', dimensions)
+    canvasDrawer.preDraw()
+    canvasDrawer.drawScales(dataset)
+    canvasDrawer.drawData(dataset)
 }
 
 drawLineChart()
